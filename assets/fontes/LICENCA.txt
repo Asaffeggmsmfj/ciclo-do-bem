@@ -1,0 +1,5 @@
+Fontes usadas no site (todas sob SIL Open Font License 1.1, uso livre):
+- Bricolage Grotesque (títulos)
+- Atkinson Hyperlegible, do Braille Institute (texto)
+- Courier Prime (cupons fiscais)
+Arquivos .woff2 obtidos do projeto Fontsource e hospedados no próprio site.
