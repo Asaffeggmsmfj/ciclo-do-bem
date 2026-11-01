@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ciclo do Bem: proposta de plataforma para a Turma do Bem encontrar e manter doadores.">
+    <title>Início | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link menu__link--ativo" href="index.html" aria-current="page">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== ABERTURA: o cupom fiscal é a porta de entrada do projeto ===== -->
+        <section class="abertura">
+            <div class="container abertura__grade">
+                <div>
+                    <h1>Cada nota fiscal pode virar um sorriso</h1>
+                    <p class="abertura__texto">Quem doa os créditos da Nota Fiscal Paulista para a Turma do Bem ajuda sem gastar nada, mas a ONG nunca sabe quem é essa pessoa. O Ciclo do Bem descobre esse doador, agradece e convida para doar todo mês.</p>
+                    <div class="acoes">
+                        <a class="btn" href="solucao.html">Ver como funciona</a>
+                        <a class="btn btn--claro" href="doar.html">Simular uma doação</a>
+                    </div>
+                </div>
+                <div class="abertura__impressora">
+                    <div class="cupom" role="img" aria-label="Cupom fiscal de exemplo mostrando créditos da Nota Fiscal Paulista doados para a Turma do Bem">
+                        <p class="cupom__centro">MERCADO DO BAIRRO LTDA<br>CNPJ 00.000.000/0001-00</p>
+                        <hr class="cupom__tracejado">
+                        <p class="cupom__linha"><span>ARROZ 5KG</span><span>27,90</span></p>
+                        <p class="cupom__linha"><span>CREME DENTAL</span><span>6,49</span></p>
+                        <p class="cupom__linha"><span>ESCOVA MACIA</span><span>9,90</span></p>
+                        <hr class="cupom__tracejado">
+                        <p class="cupom__linha cupom__total"><span>TOTAL R$</span><span>44,29</span></p>
+                        <p>CPF NA NOTA: ***.456.789-**</p>
+                        <hr class="cupom__tracejado">
+                        <p class="cupom__marcado">CRÉDITOS DOADOS PARA:<br>TURMA DO BEM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== O PROBLEMA ===== -->
+        <section class="secao">
+            <div class="container duas-colunas">
+                <div>
+                    <h2>Hoje, dez empresas pagam três quartos do tratamento</h2>
+                    <p>Em 2025, 75% do orçamento da Turma do Bem veio de patrocínio de empresas. Se uma delas sai, menos jovens são atendidos pelos dentistas voluntários. A saída é ter mais pessoas doando um pouco todo mês, e quem já doa a nota fiscal é o começo natural.</p>
+                </div>
+                <ul class="fatos">
+                    <li><strong>66</strong> pessoas doam todo mês no Amigos da Turma, em média R$ 20</li>
+                    <li><strong>100</strong> pessoas doam a Nota Fiscal Paulista e são anônimas para a ONG</li>
+                    <li><strong>5</strong> pessoas cuidam da captação, com planilhas e digitação manual</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== A JORNADA (é uma sequência real, por isso é numerada) ===== -->
+        <section class="secao secao--nevoa">
+            <div class="container">
+                <h2>Do cupom ao doador que indica amigos</h2>
+                <ol class="etapas">
+                    <li><h3>Envia o comprovante</h3><p>A pessoa manda o print da Nota Fiscal Paulista para a Cici no Telegram e a plataforma confere se é doação automática para a Turma do Bem.</p></li>
+                    <li><h3>Faz a primeira doação</h3><p>Logo depois de ser identificada, ela recebe o convite para doar por Pix, cartão ou boleto, a partir de R$ 5.</p></li>
+                    <li><h3>Passa a doar todo mês</h3><p>Se ficar muito tempo sem doar, a equipe recebe um alerta antes de perder o doador.</p></li>
+                    <li><h3>Vira embaixadora</h3><p>Ela ganha um link próprio para chamar amigos, e cada amigo começa o ciclo de novo.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===== FECHAMENTO ===== -->
+        <section class="secao secao--tinta">
+            <div class="container faixa-final">
+                <div>
+                    <h2>Quer ver a plataforma em uso?</h2>
+                    <p>O painel mostra quem está deixando de doar e quais contratos de patrocínio vencem nos próximos 90 dias.</p>
+                </div>
+                <a class="btn btn--marca" href="painel.html">Abrir o painel da equipe</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+</body>
+</html>
