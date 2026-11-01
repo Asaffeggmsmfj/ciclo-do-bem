@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fale com a equipe do Ciclo do Bem.">
+    <title>Contato | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="contato.html" aria-current="page">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Contato</p>
+                <h1>Fale com a gente</h1>
+                <p class="intro">Dúvidas, sugestões ou o interesse da sua empresa em apoiar a causa.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container contato__grade">
+                <aside>
+                    <h2>Outros canais</h2>
+                    <ul class="contato__info">
+                        <li><img src="assets/icones/email.svg" alt=""><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li><img src="assets/icones/chat.svg" alt=""><span>Cici no Telegram: @turmadobem_asaffe_bot</span></li>
+                        <li><img src="assets/icones/local.svg" alt=""><span>FIAP Paulista, São Paulo</span></li>
+                    </ul>
+                    <p class="campo__dica">Campos com * são obrigatórios. Respondemos em até 2 dias úteis.</p>
+                </aside>
+
+                <!-- Formulário validado em js/contato.js (sem o atributo required) -->
+                <form class="formulario" id="form-contato" novalidate>
+                    <h2>Envie uma mensagem</h2>
+                    <div class="campo">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Maria Silva" autocomplete="name">
+                        <span class="campo__erro" id="erro-nome" aria-live="polite"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" placeholder="nome@email.com" autocomplete="email">
+                        <span class="campo__erro" id="erro-email" aria-live="polite"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678" autocomplete="tel">
+                        <span class="campo__erro" id="erro-telefone" aria-live="polite"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="assunto">Assunto *</label>
+                        <select id="assunto" name="assunto">
+                            <option value="">Escolha um assunto</option>
+                            <option value="doacao">Quero doar</option>
+                            <option value="empresa">Sou de uma empresa</option>
+                            <option value="duvida">Tenho uma dúvida</option>
+                            <option value="outro">Outro assunto</option>
+                        </select>
+                        <span class="campo__erro" id="erro-assunto" aria-live="polite"></span>
+                    </div>
+                    <div class="campo oculto" id="campo-empresa">
+                        <label for="empresa">Nome da empresa *</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
+                        <span class="campo__erro" id="erro-empresa" aria-live="polite"></span>
+                    </div>
+                    <div class="campo">
+                        <label for="mensagem">Mensagem *</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" maxlength="500" placeholder="Pelo menos 10 caracteres"></textarea>
+                        <span class="contador" id="contador-mensagem">0/500</span>
+                        <span class="campo__erro" id="erro-mensagem" aria-live="polite"></span>
+                    </div>
+                    <div class="campo campo--check">
+                        <label><input type="checkbox" id="lgpd" name="lgpd"> Autorizo o uso dos meus dados para responder este contato *</label>
+                        <span class="campo__erro" id="erro-lgpd" aria-live="polite"></span>
+                    </div>
+                    <button class="btn btn--bloco" type="submit">Enviar mensagem</button>
+                    <div class="aviso aviso--sucesso oculto" id="aviso-sucesso" role="status"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+    <script src="js/contato.js"></script>
+</body>
+</html>

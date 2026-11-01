@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perguntas frequentes sobre doações, Nota Fiscal Paulista e LGPD.">
+    <title>FAQ | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="faq.html" aria-current="page">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / FAQ</p>
+                <h1>Perguntas frequentes</h1>
+                <p class="intro">Doações, Nota Fiscal Paulista, seus dados e o projeto.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container faq">
+                <!-- filtro por assunto (js/faq.js) -->
+                <div class="abas" role="group" aria-label="Filtrar perguntas por assunto">
+                    <button class="abas__botao" type="button" data-filtro="todas" aria-selected="true">Todas</button>
+                    <button class="abas__botao" type="button" data-filtro="doacao" aria-selected="false">Doações</button>
+                    <button class="abas__botao" type="button" data-filtro="nfp" aria-selected="false">Nota Fiscal Paulista</button>
+                    <button class="abas__botao" type="button" data-filtro="dados" aria-selected="false">Seus dados</button>
+                    <button class="abas__botao" type="button" data-filtro="projeto" aria-selected="false">Projeto</button>
+                </div>
+                <h2 class="visualmente-oculto">Lista de perguntas</h2>
+                <article class="faq__item" data-categoria="doacao">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-1" id="pergunta-1">
+                            Qual é o valor mínimo para doar?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-1" role="region" aria-labelledby="pergunta-1">
+                        <p>R$ 5. Você pode doar uma vez, todo mês ou uma vez por ano, por Pix, cartão de crédito, boleto, PayPal ou PicPay.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="doacao">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-2" id="pergunta-2">
+                            Por que a doação mensal só aceita cartão de crédito?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-2" role="region" aria-labelledby="pergunta-2">
+                        <p>Porque só o cartão permite a cobrança automática todo mês. Com Pix ou boleto, você faz doações únicas quando quiser.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="doacao">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-3" id="pergunta-3">
+                            Posso pausar ou mudar o valor da doação mensal?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-3" role="region" aria-labelledby="pergunta-3">
+                        <p>Pode. Peça para a Cici ou para a equipe: dá para pausar por 3 meses, mudar o valor ou trocar o cartão.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="nfp">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-4" id="pergunta-4">
+                            O que é a doação automática da Nota Fiscal Paulista?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-4" role="region" aria-labelledby="pergunta-4">
+                        <p>Quem pede CPF na nota em São Paulo pode mandar os créditos para uma entidade, sem gastar nada. É só escolher a Turma do Bem no aplicativo da Nota Fiscal Paulista.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="nfp">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-5" id="pergunta-5">
+                            Por que preciso mandar o print?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-5" role="region" aria-labelledby="pergunta-5">
+                        <p>A Secretaria da Fazenda não conta para a entidade quem doou. O print é o jeito de a Turma do Bem saber que você ajuda e poder agradecer.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="dados">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-6" id="pergunta-6">
+                            O que vocês fazem com os meus dados?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-6" role="region" aria-labelledby="pergunta-6">
+                        <p>Só registram suas doações e mandam as novidades que você autorizou. Você pode ver, corrigir ou apagar seus dados e retirar a autorização quando quiser.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="dados">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-7" id="pergunta-7">
+                            Vocês guardam dados de saúde dos pacientes?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-7" role="region" aria-labelledby="pergunta-7">
+                        <p>Não. A plataforma de captação não guarda dados de pacientes. O impacto mostrado aos doadores é sempre somado por programa.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="projeto">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-8" id="pergunta-8">
+                            Quem pode ser atendido pela Turma do Bem?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-8" role="region" aria-labelledby="pergunta-8">
+                        <p>Jovens de 11 a 17 anos de baixa renda, escolhidos nas triagens em escolas públicas, e mulheres que sofreram violência.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="projeto">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-9" id="pergunta-9">
+                            A Cici é uma pessoa?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-9" role="region" aria-labelledby="pergunta-9">
+                        <p>Não, é uma assistente virtual. Ela sempre se apresenta assim e passa a conversa para a equipe quando você pedir ou quando o assunto for delicado.</p>
+                    </div>
+                </article>
+                <article class="faq__item" data-categoria="projeto">
+                    <h3>
+                        <button class="faq__pergunta" type="button" aria-expanded="false" aria-controls="resposta-10" id="pergunta-10">
+                            Este site é da Turma do Bem?
+                            <span class="faq__icone" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="faq__resposta" id="resposta-10" role="region" aria-labelledby="pergunta-10">
+                        <p>Não. O Ciclo do Bem é um projeto acadêmico do Challenge FIAP 2026, feito como proposta para a Turma do Bem.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>
