@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contexto, solução, tecnologias e etapas do Ciclo do Bem.">
+    <title>Sobre | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="sobre.html" aria-current="page">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Sobre</p>
+                <h1>Sobre o projeto</h1>
+                <p class="intro">Por que o Ciclo do Bem existe, o que ele faz e em que ponto está.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container duas-colunas">
+                <article>
+                    <h2>A Turma do Bem</h2>
+                    <p>Fundada em 2002, a Turma do Bem organiza a maior rede de dentistas voluntários do mundo. No programa Dentista do Bem, eles atendem em seus consultórios jovens de 11 a 17 anos de baixa renda. No Apolônias do Bem, o tratamento é para mulheres que sofreram violência.</p>
+                    <p>No Brasil, 11% dos jovens de 12 anos nunca foram ao dentista. Sem dentes, fica mais difícil estudar e conseguir o primeiro emprego.</p>
+                </article>
+                <article>
+                    <h2>O que o Ciclo do Bem faz</h2>
+                    <p>Com pessoas físicas, transforma o doador anônimo da Nota Fiscal Paulista em doador mensal e avisa a equipe quando alguém está deixando de doar.</p>
+                    <p>Com empresas, acompanha cada negociação de patrocínio, avisa 90 dias antes de um contrato vencer e organiza a inscrição dos programas em editais.</p>
+                    <p>Tudo com o consentimento registrado, como pede a LGPD, e sem guardar nenhum dado de saúde de pacientes.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="secao secao--nevoa">
+            <div class="container">
+                <h2>Tecnologias</h2>
+                <p class="intro">Cada disciplina do Challenge constrói uma parte da plataforma.</p>
+                <dl class="lista-definicoes">
+                    <div><dt>Site</dt><dd>HTML, CSS e JavaScript escritos à mão, sem frameworks.</dd></div>
+                    <div><dt>Regras de negócio</dt><dd>Java, com o domínio modelado em classes, e um sistema em Python para a equipe.</dd></div>
+                    <div><dt>Banco de dados</dt><dd>Oracle, com 15 tabelas modeladas no SQL Developer Data Modeler.</dd></div>
+                    <div><dt>Chatbot</dt><dd>A Cici, feita em Node-RED e ligada ao Telegram, entende texto e áudio e responde por escrito ou falando.</dd></div>
+                    <div><dt>Gestão</dt><dd>Backlog com requisitos e regras de negócio, código versionado no GitHub.</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container">
+                <h2>Etapas do projeto</h2>
+                <ol class="cronograma">
+                    <li class="cronograma__feito"><h3>Sprint 1: fundação</h3><p>Site para computador, modelo de classes, modelo conceitual do banco, regras em Python e o desenho do chatbot.</p></li>
+                    <li class="cronograma__atual"><h3>Sprint 2: cadastro, doação e Nota Fiscal Paulista</h3><p>Etapa atual. Site para celular e com interações, modelos lógico e físico do banco, projeto Java e a Cici funcionando no Telegram.</p></li>
+                    <li><h3>Sprint 3: jornada, retenção e empresas</h3><p>Banco Oracle criado, API em Java, portal do doador e funil de patrocínio.</p></li>
+                    <li><h3>Sprint 4: piloto</h3><p>Radar de editais, painel com prioridades sugeridas e teste com a equipe da Turma do Bem.</p></li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+</body>
+</html>

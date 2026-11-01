@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Integrante responsável pelo projeto Ciclo do Bem.">
+    <title>Integrantes | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="integrantes.html" aria-current="page">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Integrantes</p>
+                <h1>Integrantes</h1>
+                <p class="intro">Quem desenvolve o Ciclo do Bem.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container">
+                <article class="integrante">
+                    <img class="integrante__foto" src="assets/imagens/foto-asaffe.svg" alt="Foto de Asaffe Gabriel Galdino Dos Santos" width="200" height="240">
+                    <div>
+                        <h2>Asaffe Gabriel Galdino Dos Santos</h2>
+                        <dl class="lista-definicoes">
+                            <div><dt>RM</dt><dd>574554</dd></div>
+                            <div><dt>Turma</dt><dd>1TDSPB, Análise e Desenvolvimento de Sistemas, FIAP</dd></div>
+                            <div><dt>No projeto</dt><dd>Responsável por todas as frentes na Sprint 2: site, Java, Python, banco de dados, chatbot e engenharia de software.</dd></div>
+                        </dl>
+                        <div class="integrante__redes">
+                            <a class="btn btn--claro" href="https://github.com/Asaffeggmsmfj" target="_blank" rel="noopener"><img src="assets/icones/github.svg" alt="" width="18" height="18">GitHub</a>
+                            <a class="btn btn--claro" href="https://www.linkedin.com/in/asaffe-gabriel" target="_blank" rel="noopener"><img src="assets/icones/linkedin.svg" alt="" width="18" height="18">LinkedIn</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+</body>
+</html>
