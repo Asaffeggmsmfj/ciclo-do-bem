@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador de doação e conferência do comprovante da Nota Fiscal Paulista.">
+    <title>Doar | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="doar.html" aria-current="page">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Doar</p>
+                <h1>Simulador de doação</h1>
+                <p class="intro">Escolha valor e forma de pagamento para ver como a doação funcionaria. É uma simulação: nenhum pagamento é feito.</p>
+            </div>
+        </section>
+
+        <!-- ===== SIMULADOR (js/doar.js) ===== -->
+        <section class="secao">
+            <div class="container simulador">
+                <form id="form-doacao" novalidate>
+                    <h2>Com que frequência?</h2>
+                    <div class="abas" role="tablist" aria-label="Frequência da doação">
+                        <button class="abas__botao" type="button" role="tab" data-tipo="unica" aria-selected="true">Uma vez</button>
+                        <button class="abas__botao" type="button" role="tab" data-tipo="mensal" aria-selected="false">Todo mês</button>
+                        <button class="abas__botao" type="button" role="tab" data-tipo="anual" aria-selected="false">Uma vez por ano</button>
+                    </div>
+
+                    <h2>Quanto?</h2>
+                    <div class="valores">
+                        <button class="valores__botao" type="button" data-valor="20">R$ 20</button>
+                        <button class="valores__botao valores__botao--ativo" type="button" data-valor="50">R$ 50</button>
+                        <button class="valores__botao" type="button" data-valor="100">R$ 100</button>
+                        <button class="valores__botao" type="button" data-valor="200">R$ 200</button>
+                    </div>
+                    <div class="campo">
+                        <label for="valor-outro">Outro valor em reais</label>
+                        <input type="number" id="valor-outro" min="5" step="1" placeholder="A partir de 5">
+                        <span class="campo__erro" id="erro-valor" aria-live="polite"></span>
+                    </div>
+
+                    <h2>Como pagar?</h2>
+                    <div class="formas" id="formas">
+                        <label><input type="radio" name="forma" value="pix" checked> Pix</label>
+                        <label><input type="radio" name="forma" value="cartao_credito"> Cartão de crédito</label>
+                        <label><input type="radio" name="forma" value="boleto"> Boleto</label>
+                        <label><input type="radio" name="forma" value="paypal"> PayPal</label>
+                        <label><input type="radio" name="forma" value="picpay"> PicPay</label>
+                    </div>
+                    <p class="campo__dica" id="dica-forma">A doação mensal é cobrada sozinha no cartão de crédito, por isso as outras formas ficam indisponíveis.</p>
+                </form>
+
+                <!-- o resumo aparece como um recibo -->
+                <aside class="recibo" aria-live="polite">
+                    <div class="recibo__papel">
+                    <div class="cupom">
+                        <p class="cupom__centro">TURMA DO BEM<br>RECIBO DE SIMULAÇÃO</p>
+                        <hr class="cupom__tracejado">
+                        <p class="cupom__linha"><span>TIPO</span><span id="resumo-detalhe">Doação única, Pix</span></p>
+                        <p class="cupom__linha cupom__total"><span>VALOR</span><span id="resumo-valor">R$ 50,00</span></p>
+                        <hr class="cupom__tracejado">
+                        <p class="recibo__impacto" id="resumo-impacto">Ajuda a manter cerca de 1 consulta de um jovem no Dentista do Bem.</p>
+                        <p class="recibo__impacto oculto" id="resumo-indicacao">Você chegou pelo link de uma pessoa embaixadora.</p>
+                    </div>
+                    </div>
+                    <button class="btn btn--bloco" type="button" id="botao-doar">Confirmar a simulação</button>
+                    <div class="aviso aviso--sucesso oculto" id="aviso-doacao" role="status"></div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ===== CONFERÊNCIA DO COMPROVANTE NFP (js/doar.js) ===== -->
+        <section class="secao secao--nevoa" id="validador">
+            <div class="container duas-colunas">
+                <div>
+                    <h2>Conferir um comprovante da Nota Fiscal Paulista</h2>
+                    <p>No Telegram, a Cici lê a foto do print. Aqui você testa a mesma regra colando o texto da tela de confirmação. O comprovante só é aceito quando cita a Turma do Bem, diz que é doação automática e mostra a confirmação.</p>
+                </div>
+                <form id="form-nfp" novalidate>
+                    <div class="campo">
+                        <label for="texto-nfp">Texto do comprovante *</label>
+                        <textarea id="texto-nfp" rows="4" placeholder="Doação automática confirmada com sucesso para TURMA DO BEM"></textarea>
+                        <span class="campo__erro" id="erro-nfp" aria-live="polite"></span>
+                    </div>
+                    <button class="btn" type="submit">Conferir comprovante</button>
+                    <ul class="validador__resultado" id="resultado-nfp" aria-live="polite"></ul>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+    <script src="js/doar.js"></script>
+</body>
+</html>

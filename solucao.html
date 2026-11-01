@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Como funciona a jornada do doador e o trabalho com empresas.">
+    <title>Como funciona | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="solucao.html" aria-current="page">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link" href="painel.html">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Como funciona</p>
+                <h1>Como o Ciclo do Bem funciona</h1>
+                <p class="intro">Da Nota Fiscal Paulista à doação mensal, e da primeira conversa com uma empresa até a renovação do patrocínio.</p>
+            </div>
+        </section>
+
+        <!-- ===== JORNADA DO DOADOR (js/solucao.js) ===== -->
+        <section class="secao">
+            <div class="container">
+                <h2>A jornada do doador</h2>
+                <p class="intro">Escolha uma etapa para ver o que a plataforma faz nela.</p>
+                <div class="jornada" role="tablist" aria-label="Etapas da jornada do doador">
+                    <button class="jornada__etapa jornada__etapa--ativa" type="button" role="tab" aria-selected="true" data-etapa="lead"><strong>Lead</strong><span>Doa a nota e manda o print</span></button>
+                    <button class="jornada__etapa" type="button" role="tab" aria-selected="false" data-etapa="primeiro"><strong>Primeiro doador</strong><span>Faz a primeira doação</span></button>
+                    <button class="jornada__etapa" type="button" role="tab" aria-selected="false" data-etapa="recorrente"><strong>Recorrente</strong><span>Doa todo mês</span></button>
+                    <button class="jornada__etapa" type="button" role="tab" aria-selected="false" data-etapa="embaixador"><strong>Embaixador</strong><span>Chama amigos</span></button>
+                </div>
+                <div class="jornada__detalhe" id="detalhe-etapa" role="tabpanel" aria-live="polite">
+                    <h3>Lead</h3>
+                    <p>A pessoa que doa os créditos da Nota Fiscal Paulista manda o print da tela de confirmação. A plataforma confere se a doação automática é para a Turma do Bem e cadastra a pessoa, sempre com a autorização dela.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NOTA FISCAL PAULISTA ===== -->
+        <section class="secao secao--nevoa">
+            <div class="container duas-colunas">
+                <div>
+                    <h2>O doador anônimo ganha nome</h2>
+                    <ol class="passos">
+                        <li>A pessoa ativa a doação automática da Nota Fiscal Paulista para a Turma do Bem.</li>
+                        <li>Ela manda o print para a Cici no Telegram.</li>
+                        <li>A Cici lê a imagem e confere três coisas: Turma do Bem, doação automática e confirmação.</li>
+                        <li>Se estiver tudo certo, a pessoa vira doadora identificada e recebe o convite para doar R$ 20 por mês.</li>
+                    </ol>
+                    <a class="btn" href="doar.html#validador">Testar a conferência do comprovante</a>
+                </div>
+                <div class="conversa" aria-label="Exemplo de conversa com a Cici no Telegram">
+                    <p class="conversa__titulo">Cici, assistente do Ciclo do Bem</p>
+                    <p class="conversa__msg conversa__msg--pessoa">como doo minha nota fiscal paulista?</p>
+                    <p class="conversa__msg conversa__msg--bot">Você ajuda sem gastar nada: os créditos das suas notas vão direto para a Turma do Bem. Já ativou a doação automática?</p>
+                    <p class="conversa__msg conversa__msg--pessoa">já sim <span class="conversa__foto">[foto do comprovante]</span></p>
+                    <p class="conversa__msg conversa__msg--bot">Confirmado! Agora você é doadora automática. Quer ir além e doar R$ 20 por mês?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EMPRESAS ===== -->
+        <section class="secao">
+            <div class="container">
+                <h2>Com as empresas</h2>
+                <div class="frentes">
+                    <article>
+                        <img src="assets/icones/empresa.svg" alt="">
+                        <h3>Negociações acompanhadas</h3>
+                        <p>Cada empresa é acompanhada da primeira conversa até o contrato, sempre com próxima ação, prazo e responsável. Quem publica relatório ESG aparece primeiro.</p>
+                    </article>
+                    <article>
+                        <img src="assets/icones/alerta.svg" alt="">
+                        <h3>Aviso de renovação</h3>
+                        <p>A equipe é avisada 90 dias antes de cada contrato de patrocínio vencer, em vez de revisar tudo só no fim do ano.</p>
+                    </article>
+                    <article>
+                        <img src="assets/icones/painel.svg" alt="">
+                        <h3>Editais organizados</h3>
+                        <p>Editais e leis de incentivo ficam ligados a cada programa, com prazo e valor máximo, no lugar da planilha.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+    <script src="js/solucao.js"></script>
+</body>
+</html>

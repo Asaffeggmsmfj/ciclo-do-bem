@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Protótipo do painel da equipe de captação.">
+    <title>Painel da equipe | Ciclo do Bem</title>
+    <link rel="icon" href="assets/imagens/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+    <!-- ===== CABEÇALHO (igual em todas as páginas) ===== -->
+    <header class="cabecalho">
+        <div class="container cabecalho__conteudo">
+            <a class="logo" href="index.html">
+                <img src="assets/imagens/logo.svg" alt="" width="34" height="34">
+                Ciclo do Bem
+            </a>
+            <!-- botão do menu: aparece só em telas menores que 992px (js/main.js) -->
+            <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+                <span class="menu-botao__icone" aria-hidden="true">
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                    <span class="menu-botao__barra"></span>
+                </span>
+                Menu
+            </button>
+            <nav class="menu" id="menu-principal" aria-label="Menu principal">
+                <ul class="menu__lista">
+                    <li><a class="menu__link" href="index.html">Início</a></li>
+                    <li><a class="menu__link" href="sobre.html">Sobre</a></li>
+                    <li><a class="menu__link" href="solucao.html">Como funciona</a></li>
+                    <li><a class="menu__link" href="doar.html">Doar</a></li>
+                    <li><a class="menu__link menu__link--ativo" href="painel.html" aria-current="page">Painel da equipe</a></li>
+                    <li><a class="menu__link" href="integrantes.html">Integrantes</a></li>
+                    <li><a class="menu__link" href="faq.html">FAQ</a></li>
+                    <li><a class="menu__link" href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== TOPO DA PÁGINA ===== -->
+        <section class="topo-pagina">
+            <div class="container">
+                <p class="trilha"><a href="index.html">Início</a> / Painel da equipe</p>
+                <h1>Painel da captação</h1>
+                <p class="intro">Protótipo da tela que a equipe da Turma do Bem usaria todo dia. Os nomes e valores são fictícios.</p>
+            </div>
+        </section>
+
+        <section class="secao">
+            <div class="container">
+                <!-- números calculados em js/painel.js -->
+                <div class="indicadores" id="indicadores" aria-live="polite"></div>
+
+                <div class="abas" role="tablist" aria-label="Visões do painel">
+                    <button class="abas__botao" type="button" role="tab" aria-selected="true" aria-controls="aba-doadores" data-aba="aba-doadores">Doadores</button>
+                    <button class="abas__botao" type="button" role="tab" aria-selected="false" aria-controls="aba-contratos" data-aba="aba-contratos">Contratos</button>
+                    <button class="abas__botao" type="button" role="tab" aria-selected="false" aria-controls="aba-campanhas" data-aba="aba-campanhas">Campanhas</button>
+                </div>
+
+                <!-- ABA: DOADORES -->
+                <div id="aba-doadores" role="tabpanel">
+                    <h2>Quem está deixando de doar</h2>
+                    <div class="filtros">
+                        <div class="campo">
+                            <label for="filtro-busca">Buscar por nome ou cidade</label>
+                            <input type="search" id="filtro-busca" placeholder="Ana ou Campinas">
+                        </div>
+                        <div class="campo">
+                            <label for="filtro-etapa">Etapa</label>
+                            <select id="filtro-etapa">
+                                <option value="">Todas</option>
+                                <option value="LEAD">Lead</option>
+                                <option value="PRIMEIRO_DOADOR">Primeiro doador</option>
+                                <option value="RECORRENTE">Recorrente</option>
+                                <option value="EMBAIXADOR">Embaixador</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="filtro-risco">Risco de parar de doar</label>
+                            <select id="filtro-risco">
+                                <option value="">Todos</option>
+                                <option value="ALTO">Alto</option>
+                                <option value="MÉDIO">Médio</option>
+                                <option value="BAIXO">Baixo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tabela-rolagem">
+                        <table class="tabela">
+                            <caption class="visualmente-oculto">Doadores com etapa, total doado, dias sem doar, risco e ação sugerida</caption>
+                            <thead>
+                                <tr><th scope="col">Doador</th><th scope="col">Etapa</th><th scope="col">Total doado</th><th scope="col">Sem doar há</th><th scope="col">Risco</th><th scope="col">O que fazer</th></tr>
+                            </thead>
+                            <tbody id="tabela-doadores"></tbody>
+                        </table>
+                    </div>
+                    <p class="campo__dica" id="contagem-doadores"></p>
+                </div>
+
+                <!-- ABA: CONTRATOS -->
+                <div id="aba-contratos" role="tabpanel" class="oculto">
+                    <h2>Contratos de patrocínio</h2>
+                    <div class="tabela-rolagem">
+                        <table class="tabela">
+                            <caption class="visualmente-oculto">Contratos com valor anual, vencimento e aviso de renovação</caption>
+                            <thead><tr><th scope="col">Empresa</th><th scope="col">Valor por ano</th><th scope="col">Vence em</th><th scope="col">Situação</th></tr></thead>
+                            <tbody id="tabela-contratos"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ABA: CAMPANHAS -->
+                <div id="aba-campanhas" role="tabpanel" class="oculto">
+                    <h2>Campanhas</h2>
+                    <div class="lista-campanhas" id="lista-campanhas"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== RODAPÉ (igual em todas as páginas) ===== -->
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape__grade">
+                <section>
+                    <h2>Ciclo do Bem</h2>
+                    <p>Proposta de plataforma de captação de doadores e patrocinadores para a Turma do Bem, feita para o Challenge FIAP 2026. Não é um site oficial da ONG.</p>
+                </section>
+                <nav aria-label="Mapa do site">
+                    <h2>Páginas</h2>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="solucao.html">Como funciona</a></li>
+                        <li><a href="doar.html">Doar</a></li>
+                        <li><a href="painel.html">Painel da equipe</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+                <section>
+                    <h2>Projeto</h2>
+                    <ul>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem" target="_blank" rel="noopener">Código no GitHub</a></li>
+                        <li><a href="https://github.com/Asaffeggmsmfj/ciclo-do-bem/blob/main/docs/BACKLOG.md" target="_blank" rel="noopener">Backlog</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Contato</h2>
+                    <ul>
+                        <li><a href="mailto:projetotdbfiap@gmail.com">projetotdbfiap@gmail.com</a></li>
+                        <li>FIAP Paulista, São Paulo</li>
+                    </ul>
+                </section>
+            </div>
+            <p class="rodape__base">© <span id="ano-atual">2026</span> Asaffe Gabriel Galdino Dos Santos, RM 574554, turma 1TDSPB</p>
+        </div>
+    </footer>
+    <button class="voltar-topo" type="button">Voltar ao topo</button>
+    <script src="js/main.js"></script>
+    <script src="js/painel.js"></script>
+</body>
+</html>
