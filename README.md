@@ -94,7 +94,7 @@ Acesse o link publicado ou baixe o repositório e abra o `index.html` no navegad
 
 | Foto | Nome | RM | Turma | Links |
 |---|---|---|---|---|
-| <img src="assets/imagens/foto-asaffe.svg" width="80" alt="Foto de Asaffe"> | Asaffe Gabriel Galdino Dos Santos | 574554 | 1TDSPB | [GitHub](https://github.com/Asaffeggmsmfj), [LinkedIn](https://www.linkedin.com/in/asaffe-gabriel) |
+| <img src="assets/imagens/foto-asaffe.jpg" width="80" alt="Foto de Asaffe"> | Asaffe Gabriel Galdino Dos Santos | 574554 | 1TDSPB | [GitHub](https://github.com/Asaffeggmsmfj), [LinkedIn](https://www.linkedin.com/in/asaffe-gabriel) |
 
 ## Contato
 
