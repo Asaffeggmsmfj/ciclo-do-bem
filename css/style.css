@@ -1,0 +1,214 @@
+/* ==========================================================================
+   CICLO DO BEM · style.css
+   Base do site: fontes, cores, tipografia, layout, cabeçalho, rodapé e
+   componentes reutilizáveis (botões, formulários, abas, cupom fiscal).
+   Mobile-first: o CSS base é para celular; as media queries no fim do
+   arquivo ampliam para tablet (768px), desktop (992px) e telas grandes (1300px).
+   ========================================================================== */
+
+/* ---------- 1. Fontes (hospedadas no próprio projeto, licença OFL) ---------- */
+@font-face { font-family: "Bricolage"; src: url("../assets/fontes/bricolage-grotesque-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Bricolage"; src: url("../assets/fontes/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../assets/fontes/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../assets/fontes/atkinson-hyperlegible-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("../assets/fontes/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Courier Prime"; src: url("../assets/fontes/courier-prime-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Courier Prime"; src: url("../assets/fontes/courier-prime-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+/* ---------- 2. Variáveis ---------- */
+:root {
+    --papel: #ffffff;
+    --tinta: #1d2b4f;          /* azul-tinta: textos e fundos fortes */
+    --tinta-suave: #56617d;
+    --marca: #ffd84d;          /* amarelo marca-texto: destaque e ações */
+    --gengiva: #c94455;        /* rosa-gengiva: erros, alertas e risco */
+    --nevoa: #eef1f6;          /* painéis claros */
+    --linha: #cfd5e1;
+    --ok: #237a52;
+    --fonte-titulo: "Bricolage", "Arial Narrow", Arial, sans-serif;
+    --fonte-texto: "Atkinson", "Segoe UI", Arial, sans-serif;
+    --fonte-cupom: "Courier Prime", "Courier New", monospace;
+    --largura-max: 1160px;
+    --raio: 6px;
+}
+
+/* ---------- 3. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--tinta);
+    background: var(--papel);
+    overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--tinta); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--marca); }
+
+h1, h2, h3, h4 { font-family: var(--fonte-titulo); font-weight: 800; line-height: 1.08; margin: 0 0 .5em; letter-spacing: -0.02em; }
+h1 { font-size: 2.3rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0 0 1em; max-width: 68ch; }
+
+:focus-visible { outline: 3px solid var(--marca); outline-offset: 3px; box-shadow: 0 0 0 6px var(--tinta); }
+
+.visualmente-oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.oculto { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 4. Layout ---------- */
+.container { width: 100%; max-width: var(--largura-max); margin: 0 auto; padding: 0 16px; }
+.secao { padding: 56px 0; }
+.secao--nevoa { background: var(--nevoa); }
+.secao--tinta { background: var(--tinta); color: var(--papel); }
+.secao--tinta h2, .secao--tinta a:not(.btn) { color: var(--papel); }
+.intro { color: var(--tinta-suave); font-size: 1.1rem; }
+.duas-colunas { display: grid; gap: 28px; }
+
+/* ---------- 5. Cabeçalho e menu ---------- */
+.cabecalho { position: sticky; top: 0; z-index: 50; background: var(--papel); border-bottom: 2px solid var(--tinta); }
+.cabecalho__conteudo { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--fonte-titulo); font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
+.logo img { width: 34px; height: 34px; }
+
+.menu-botao {
+    display: flex; align-items: center; gap: 10px; height: 42px; padding: 0 12px;
+    border: 2px solid var(--tinta); border-radius: var(--raio); background: var(--papel);
+    font: 700 .95rem var(--fonte-texto); color: var(--tinta); cursor: pointer;
+}
+.menu-botao__icone { position: relative; width: 18px; height: 12px; }
+.menu-botao__barra { position: absolute; left: 0; width: 18px; height: 2px; background: var(--tinta); transition: transform .2s, opacity .2s; }
+.menu-botao__barra:nth-child(1) { top: 0; }
+.menu-botao__barra:nth-child(2) { top: 5px; }
+.menu-botao__barra:nth-child(3) { top: 10px; }
+.menu-botao[aria-expanded="true"] .menu-botao__barra:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.menu-botao[aria-expanded="true"] .menu-botao__barra:nth-child(2) { opacity: 0; }
+.menu-botao[aria-expanded="true"] .menu-botao__barra:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+.menu { position: absolute; top: 64px; left: 0; right: 0; background: var(--tinta); max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+.menu--aberto { max-height: 560px; }
+.menu__lista { list-style: none; margin: 0; padding: 8px 16px 20px; }
+.menu__link { display: block; padding: 13px 4px; color: var(--papel); text-decoration: none; font-weight: 700; border-bottom: 1px solid rgba(255, 255, 255, .15); }
+.menu__link:hover, .menu__link--ativo { color: var(--marca); }
+
+/* ---------- 6. Botões ---------- */
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 12px 20px; border: 2px solid var(--tinta); border-radius: var(--raio);
+    font: 700 1rem var(--fonte-texto); text-decoration: none; cursor: pointer;
+    background: var(--tinta); color: var(--papel);
+}
+.btn:hover { background: var(--marca); color: var(--tinta); }
+.btn--claro { background: var(--papel); color: var(--tinta); }
+.btn--marca { background: var(--marca); color: var(--tinta); border-color: var(--marca); }
+.btn--marca:hover { background: var(--papel); border-color: var(--papel); }
+.btn--bloco { width: 100%; }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* ---------- 7. Cupom fiscal (elemento de identidade do projeto) ---------- */
+.cupom {
+    position: relative; background: #fbf5df; color: #26262b;
+    font-family: var(--fonte-cupom); font-size: .92rem; line-height: 1.45;
+    padding: 22px 22px 34px; max-width: 360px;
+    /* borda serrilhada embaixo, como papel de bobina rasgado */
+    -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+                  conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 14px 10px repeat-x;
+            mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+                  conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 14px 10px repeat-x;
+}
+.cupom__centro { text-align: center; }
+.cupom__linha { display: flex; justify-content: space-between; gap: 12px; }
+.cupom__tracejado { border: 0; border-top: 1px dashed #8b8b93; margin: 10px 0; }
+.cupom__total { font-weight: 700; font-size: 1.05rem; }
+.cupom__marcado { background: linear-gradient(transparent 35%, var(--marca) 35%, var(--marca) 88%, transparent 88%); }
+
+/* ---------- 8. Formulários ---------- */
+.campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+.campo label { font-weight: 700; }
+.campo input, .campo select, .campo textarea {
+    font: inherit; padding: 12px 14px; border: 2px solid var(--linha); border-radius: var(--raio);
+    background: var(--papel); color: var(--tinta); width: 100%;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus { border-color: var(--tinta); outline: none; box-shadow: 0 0 0 3px var(--marca); }
+.campo--erro input, .campo--erro select, .campo--erro textarea { border-color: var(--gengiva); background: #fff6f7; }
+.campo__erro { color: var(--gengiva); font-size: .92rem; font-weight: 700; min-height: 1.2em; }
+.campo__dica { color: var(--tinta-suave); font-size: .92rem; max-width: none; }
+.campo--check label { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
+.campo--check input { width: 20px; height: 20px; flex-shrink: 0; margin-top: 3px; accent-color: var(--tinta); }
+
+.aviso { padding: 14px 16px; border-radius: var(--raio); margin: 14px 0 0; font-weight: 700; border-left: 6px solid; }
+.aviso--sucesso { background: #e8f4ee; color: var(--ok); border-color: var(--ok); }
+.aviso--erro { background: #fbe9eb; color: var(--gengiva); border-color: var(--gengiva); }
+
+/* ---------- 9. Abas ---------- */
+.abas { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 24px; border-bottom: 2px solid var(--tinta); }
+.abas__botao {
+    font: 700 1rem var(--fonte-texto); padding: 10px 16px; cursor: pointer; color: var(--tinta-suave);
+    background: none; border: 0; border-bottom: 4px solid transparent; margin-bottom: -2px;
+}
+.abas__botao:hover { color: var(--tinta); }
+.abas__botao[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--marca); }
+
+/* ---------- 10. Etiquetas de status ---------- */
+.etiqueta { display: inline-block; padding: 1px 8px; border-radius: 3px; font-size: .85rem; font-weight: 700; background: var(--nevoa); }
+.etiqueta--alto { background: var(--gengiva); color: var(--papel); }
+.etiqueta--medio { background: var(--marca); color: var(--tinta); }
+
+/* ---------- 11. Cabeçalho das páginas internas ---------- */
+.topo-pagina { padding: 40px 0 28px; border-bottom: 1px solid var(--linha); }
+.trilha { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 14px; }
+.trilha a { color: var(--tinta-suave); }
+
+/* ---------- 12. Rodapé ---------- */
+.rodape { background: var(--tinta); color: #d5dbea; padding: 44px 0 24px; border-top: 6px solid var(--marca); }
+.rodape__grade { display: grid; gap: 28px; }
+.rodape h2 { color: var(--papel); font-size: 1.1rem; }
+.rodape a { color: #d5dbea; }
+.rodape a:hover { color: var(--marca); }
+.rodape ul { list-style: none; margin: 0; padding: 0; }
+.rodape li { margin-bottom: 6px; }
+.rodape__base { border-top: 1px solid rgba(255, 255, 255, .18); margin-top: 28px; padding-top: 16px; font-size: .92rem; max-width: none; }
+
+.voltar-topo {
+    position: fixed; right: 16px; bottom: 16px; padding: 10px 14px; border-radius: var(--raio);
+    border: 2px solid var(--tinta); background: var(--marca); color: var(--tinta); font: 700 .9rem var(--fonte-texto);
+    cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.voltar-topo--visivel { opacity: 1; pointer-events: auto; }
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+@media (min-width: 768px) {
+    h1 { font-size: 3.2rem; }
+    h2 { font-size: 2.1rem; }
+    .container { padding: 0 28px; }
+    .secao { padding: 76px 0; }
+    .topo-pagina { padding: 56px 0 36px; }
+    .duas-colunas { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .rodape__grade { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+    .menu-botao { display: none; }
+    .menu { position: static; max-height: none; overflow: visible; background: none; }
+    .menu__lista { display: flex; gap: 2px; padding: 0; }
+    .menu__link { color: var(--tinta); border: 0; padding: 6px 10px; font-size: .97rem; }
+    .menu__link:hover { color: var(--tinta); text-decoration: underline; text-decoration-color: var(--marca); text-decoration-thickness: 3px; }
+    .menu__link--ativo { color: var(--tinta); box-shadow: inset 0 -4px 0 var(--marca); }
+    .duas-colunas--larga { grid-template-columns: 1.3fr 1fr; }
+    .rodape__grade { grid-template-columns: 2fr 1fr 1fr 1fr; }
+}
+
+@media (min-width: 1300px) {
+    :root { --largura-max: 1220px; }
+    h1 { font-size: 3.8rem; }
+    .secao { padding: 96px 0; }
+}
