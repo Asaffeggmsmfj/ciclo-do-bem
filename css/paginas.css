@@ -1,0 +1,184 @@
+/* ==========================================================================
+   CICLO DO BEM · paginas.css
+   Estilos de cada página, na ordem: 1. Início  2. Sobre  3. Integrantes
+   4. FAQ  5. Contato  6. Como funciona  7. Doar  8. Painel  9. Media queries
+   ========================================================================== */
+
+/* ---------- 1. Início ---------- */
+.abertura { padding: 40px 0 56px; border-bottom: 2px solid var(--tinta); }
+.abertura__grade { display: grid; gap: 40px; align-items: center; }
+.abertura h1 { font-size: 2.6rem; max-width: 14ch; }
+.abertura__texto { font-size: 1.15rem; color: var(--tinta-suave); }
+
+/* o cupom "sai da impressora" uma única vez, ao carregar a página */
+.abertura__impressora { position: relative; justify-self: center; width: 100%; max-width: 360px; padding-top: 14px; }
+.abertura__impressora::before {
+    content: ""; position: absolute; top: 0; left: -14px; right: -14px; height: 18px;
+    background: var(--tinta); border-radius: 4px; z-index: 2;
+}
+.abertura__impressora .cupom { animation: imprimir 1.4s cubic-bezier(.2, .7, .3, 1) .3s both; transform-origin: top; }
+@keyframes imprimir { from { clip-path: inset(0 0 100% 0); transform: translateY(-12px); } to { clip-path: inset(0 0 0 0); transform: translateY(0); } }
+
+.fatos { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--tinta); }
+.fatos li { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linha); }
+.fatos strong { font-family: var(--fonte-titulo); font-size: 1.9rem; min-width: 3.6ch; line-height: 1; }
+
+.etapas { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 0; counter-reset: etapa; }
+.etapas li { position: relative; padding: 0 0 26px 52px; border-left: 3px solid var(--tinta); margin-left: 15px; }
+.etapas li:last-child { border-left-color: transparent; }
+.etapas li::before {
+    counter-increment: etapa; content: counter(etapa);
+    position: absolute; left: -18px; top: -2px; width: 33px; height: 33px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--marca); border: 3px solid var(--tinta);
+    font-family: var(--fonte-titulo); font-weight: 800;
+}
+.etapas h3 { margin-bottom: 4px; }
+.etapas p { color: var(--tinta-suave); margin: 0; }
+
+.faixa-final { display: grid; gap: 20px; align-items: center; }
+.faixa-final p { color: #d5dbea; margin: 0; }
+
+/* ---------- 2. Sobre ---------- */
+.lista-definicoes { margin: 0; border-top: 2px solid var(--tinta); }
+.lista-definicoes div { padding: 14px 0; border-bottom: 1px solid var(--linha); display: grid; gap: 4px; }
+.lista-definicoes dt { font-weight: 700; }
+.lista-definicoes dd { margin: 0; color: var(--tinta-suave); }
+
+.cronograma { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.cronograma li { padding: 18px 20px; border: 2px solid var(--linha); border-radius: var(--raio); }
+.cronograma__feito { background: var(--nevoa); }
+.cronograma__atual { border-color: var(--tinta) !important; box-shadow: 6px 6px 0 var(--marca); }
+.cronograma h3 { margin-bottom: 6px; }
+.cronograma p { margin: 0; color: var(--tinta-suave); }
+
+/* ---------- 3. Integrantes ---------- */
+.integrante { display: grid; gap: 24px; align-items: start; }
+.integrante__foto { width: 200px; height: 240px; object-fit: cover; border: 3px solid var(--tinta); box-shadow: 8px 8px 0 var(--marca); }
+.integrante__redes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.integrante__redes img { width: 18px; height: 18px; margin-right: 8px; }
+
+/* ---------- 4. FAQ ---------- */
+.faq { max-width: 820px; }
+.faq__item { border-bottom: 1px solid var(--linha); }
+.faq__item h3 { margin: 0; font-family: var(--fonte-texto); font-size: 1.08rem; letter-spacing: 0; }
+.faq__pergunta {
+    width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 18px 0; border: 0; background: none; font: inherit; font-weight: 700; text-align: left;
+    color: var(--tinta); cursor: pointer;
+}
+.faq__icone { flex-shrink: 0; width: 26px; height: 26px; border: 2px solid var(--tinta); border-radius: 50%; display: grid; place-items: center; font-weight: 700; transition: transform .2s; }
+.faq__pergunta[aria-expanded="true"] .faq__icone { transform: rotate(45deg); background: var(--marca); }
+.faq__resposta { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
+.faq__resposta p { padding-bottom: 18px; margin: 0; color: var(--tinta-suave); }
+
+/* ---------- 5. Contato ---------- */
+.contato__grade { display: grid; gap: 36px; }
+.contato__info { list-style: none; padding: 0; margin: 0 0 20px; }
+.contato__info li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--linha); }
+.contato__info img { width: 22px; height: 22px; margin-top: 2px; }
+.formulario { background: var(--nevoa); padding: 24px; border-radius: var(--raio); }
+.contador { align-self: flex-end; font-size: .88rem; color: var(--tinta-suave); }
+
+/* ---------- 6. Como funciona ---------- */
+.jornada { display: grid; gap: 8px; }
+.jornada__etapa {
+    text-align: left; padding: 14px 16px; cursor: pointer; font: inherit; color: var(--tinta);
+    background: var(--papel); border: 2px solid var(--linha); border-radius: var(--raio);
+}
+.jornada__etapa strong { display: block; font-family: var(--fonte-titulo); font-size: 1.15rem; }
+.jornada__etapa span { color: var(--tinta-suave); }
+.jornada__etapa--ativa { border-color: var(--tinta); background: var(--marca); }
+.jornada__etapa--ativa span { color: var(--tinta); }
+.jornada__detalhe { margin-top: 18px; padding: 22px; border-left: 6px solid var(--marca); background: var(--nevoa); }
+.jornada__detalhe h3 { margin-bottom: 6px; }
+
+.passos { list-style: none; padding: 0; margin: 0 0 24px; counter-reset: passo; }
+.passos li { position: relative; padding: 0 0 18px 44px; }
+.passos li::before { counter-increment: passo; content: counter(passo); position: absolute; left: 0; top: -1px; width: 28px; height: 28px; border-radius: 50%; background: var(--tinta); color: var(--papel); display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
+
+/* conversa de exemplo, imitando a tela do Telegram */
+.conversa { max-width: 400px; background: #dfe7d8; border-radius: 14px; padding: 16px 14px; border: 2px solid var(--tinta); }
+.conversa__titulo { font-weight: 700; font-size: .92rem; margin-bottom: 12px; }
+.conversa__msg { max-width: 85%; padding: 9px 12px; border-radius: 12px; margin: 0 0 8px; font-size: .95rem; line-height: 1.4; }
+.conversa__msg--bot { background: var(--papel); border-bottom-left-radius: 3px; }
+.conversa__msg--pessoa { background: #d3f3c0; margin-left: auto; border-bottom-right-radius: 3px; }
+.conversa__foto { display: block; font-style: italic; color: var(--tinta-suave); }
+
+.frentes { display: grid; gap: 28px; }
+.frentes article { border-top: 4px solid var(--tinta); padding-top: 16px; }
+.frentes img { width: 36px; height: 36px; margin-bottom: 10px; }
+.frentes p { color: var(--tinta-suave); margin: 0; }
+
+/* ---------- 7. Doar ---------- */
+.simulador { display: grid; gap: 32px; align-items: start; }
+.simulador h2 { font-size: 1.3rem; margin-top: 8px; }
+.valores { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+.valores__botao { font: 800 1.15rem var(--fonte-titulo); padding: 14px; border-radius: var(--raio); border: 2px solid var(--linha); background: var(--papel); cursor: pointer; color: var(--tinta); }
+.valores__botao:hover { border-color: var(--tinta); }
+.valores__botao--ativo { border-color: var(--tinta); background: var(--marca); }
+.formas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.formas label { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border: 2px solid var(--linha); border-radius: var(--raio); cursor: pointer; }
+.formas input { accent-color: var(--tinta); }
+.formas label.formas--desabilitada { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.recibo { justify-self: center; width: 100%; max-width: 360px; }
+.recibo .cupom { max-width: none; }
+.recibo__impacto { font-family: var(--fonte-texto); font-size: .95rem; margin: 6px 0 0; }
+.validador__resultado { list-style: none; padding: 0; margin: 16px 0 0; }
+.validador__resultado li { padding: 6px 0 6px 26px; position: relative; }
+.validador__resultado li::before { position: absolute; left: 0; top: 6px; font-weight: 700; }
+.validador__ok::before { content: "\2713"; color: var(--ok); }
+.validador__falta::before { content: "\2717"; color: var(--gengiva); }
+.validador__resultado li.aviso { padding: 12px 16px; margin-top: 10px; }
+.validador__resultado li.aviso::before { content: none; }
+
+/* ---------- 8. Painel ---------- */
+.indicadores { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 2px solid var(--tinta); margin-bottom: 36px; }
+.indicador { padding: 16px 12px 16px 0; border-bottom: 1px solid var(--linha); }
+.indicador__valor { font-family: var(--fonte-titulo); font-weight: 800; font-size: 1.7rem; line-height: 1.1; }
+.indicador__rotulo { font-size: .92rem; color: var(--tinta-suave); }
+.filtros { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 16px; }
+.filtros .campo { margin-bottom: 0; flex: 1 1 180px; }
+.tabela-rolagem { overflow-x: auto; border: 2px solid var(--tinta); border-radius: var(--raio); }
+.tabela { width: 100%; border-collapse: collapse; min-width: 600px; }
+.tabela th { background: var(--tinta); color: var(--papel); text-align: left; padding: 10px 12px; font-size: .92rem; }
+.tabela td { padding: 10px 12px; border-top: 1px solid var(--linha); font-size: .96rem; vertical-align: top; }
+.tabela tbody tr:hover { background: var(--nevoa); }
+.lista-campanhas { display: grid; gap: 20px; }
+.lista-campanhas article { padding: 18px 0; border-bottom: 1px solid var(--linha); }
+.barra { height: 12px; background: var(--nevoa); border: 1px solid var(--linha); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.barra__preenchimento { height: 100%; background: var(--tinta); }
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+@media (min-width: 768px) {
+    .abertura { padding: 64px 0 80px; }
+    .abertura h1 { font-size: 3.6rem; }
+    .abertura__grade { grid-template-columns: 1.3fr 1fr; }
+    .faixa-final { grid-template-columns: 1fr auto; }
+    .lista-definicoes div { grid-template-columns: 220px 1fr; gap: 20px; }
+    .cronograma { grid-template-columns: repeat(2, 1fr); }
+    .integrante { grid-template-columns: 220px 1fr; gap: 40px; }
+    .contato__grade { grid-template-columns: 1fr 1.4fr; }
+    .jornada { grid-template-columns: repeat(2, 1fr); }
+    .frentes { grid-template-columns: repeat(3, 1fr); }
+    .valores { grid-template-columns: repeat(4, 1fr); }
+    .indicadores { grid-template-columns: repeat(3, 1fr); }
+    .lista-campanhas { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 992px) {
+    .abertura h1 { font-size: 4.2rem; }
+    .jornada { grid-template-columns: repeat(4, 1fr); }
+    .simulador { grid-template-columns: 1.4fr 1fr; gap: 56px; }
+    .recibo { position: sticky; top: 88px; }
+    .indicadores { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (min-width: 1300px) {
+    .abertura h1 { font-size: 4.8rem; }
+}
+
+/* a sombra fica no elemento pai porque a máscara serrilhada do cupom cortaria um box-shadow */
+.abertura__impressora, .recibo__papel { filter: drop-shadow(0 1px 0 rgba(29, 43, 79, .35)) drop-shadow(0 12px 14px rgba(29, 43, 79, .18)); }
+.recibo__papel { margin-bottom: 18px; }
